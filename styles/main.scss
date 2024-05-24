@@ -1,0 +1,252 @@
+// Настройка
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #000;
+}
+
+body {
+    font-family: "Roboto";
+    font-weight: 700;
+    color: #fff;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+// --------------
+
+// Родитель
+
+.cards {
+    width: 1281px;
+    margin: 0 auto;
+    position: relative;
+
+    &__row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+
+        background: linear-gradient(
+            180deg,
+            rgba(107, 125, 222, 0.12) 0%,
+            #2921a5 100%
+        );
+        outline: 4px solid #6b7dde3d;
+        box-shadow: 0px 24px 48px 0px rgba(23, 43, 151, 0.72);
+        border-radius: 24px;
+        counter-reset: custom-counter;
+        padding: 4px;
+    }
+
+    &__item {
+        flex: 0 0 419px;
+        height: 352px;
+        border-radius: 20px;
+        position: relative;
+
+        &:nth-child(1) {
+            background: linear-gradient(180deg, #6377e1 0%, #2920a5 100%);
+
+            &::before {
+                content: "";
+                background: url("../images/arrow.svg") no-repeat;
+                position: absolute;
+                width: 92px;
+                height: 40px;
+                top: 92px;
+                right: -45px;
+                z-index: 10;
+            }
+
+            & .cards__title {
+                &::before {
+                    background: linear-gradient(
+                        180deg,
+                        #2920a5 0%,
+                        #6377e1 100%
+                    );
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            background: linear-gradient(180deg, #fc69fc 0%, #741595 100%);
+
+            &::before {
+                content: "";
+                background: url("../images/arrow.svg") no-repeat;
+                position: absolute;
+                width: 92px;
+                height: 40px;
+                top: 92px;
+                right: -45px;
+                z-index: 10;
+            }
+
+            & .cards__title {
+                &::before {
+                    background: linear-gradient(
+                        180deg,
+                        #741595 0%,
+                        #e163e1 100%
+                    );
+                }
+            }
+        }
+        &:nth-child(3) {
+            background: linear-gradient(180deg, #55ce00 0%, #014d1d 100%);
+
+            & .cards__title {
+                &::before {
+                    background: linear-gradient(
+                        180deg,
+                        #014d1d 0%,
+                        #55ce00 100%
+                    );
+                }
+            }
+        }
+    }
+
+    &__card {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.32);
+        transition: all 0.3s ease;
+
+        &:hover {
+            border: 6px solid rgba(255, 255, 255, 0.32);
+        }
+
+        & img {
+            position: absolute;
+            top: 88px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+
+            &:hover {
+                top: 84px;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        counter-increment: custom-counter;
+        position: absolute;
+        top: 20px;
+        left: 84px;
+
+        &::before {
+            content: counter(custom-counter);
+            position: absolute;
+            top: 0;
+            left: -64px;
+            border-radius: 50%;
+            height: 48px;
+            width: 48px;
+            line-height: 48px;
+            text-align: center;
+            outline: 2px solid rgba(255, 255, 255, 0.144);
+        }
+    }
+
+    &__btn {
+        text-align: end;
+        margin: 0 260px 0 0;
+
+        & button {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            background: linear-gradient(180deg, #5dc416 0%, #367b05 100%);
+            border: 3px solid #95ff4ba3;
+            box-shadow: 0px 4px 8px 0px rgba(61, 147, 0, 0.48);
+            box-shadow: 0px 0px 0px 4px rgba(91, 192, 20, 0.24);
+            border-radius: 16px;
+            position: relative;
+            padding: 10px 40px 10px 52px;
+            margin: 84px auto;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: linear-gradient(180deg, #58bd11 0%, #45940e 100%);
+                border: 4px solid #95ff4ba3;
+                box-shadow: 0px 4px 8px 0px #3d93007a;
+                box-shadow: 0px 0px 0px 6px #5bc0143d;
+            }
+            &:active {
+                background: linear-gradient(360deg, #51a814 0%, #368300 100%);
+                border: 2px solid #95ff4b7a;
+                box-shadow: 0px 4px 8px 0px #3d93007a;
+                box-shadow: 0px 4px 8px 0px #3d93007a;
+                box-shadow: 0px 0px 0px 4px #5bc0143d;
+            }
+
+            &::before {
+                content: "";
+                background: url("../images/btn.svg") no-repeat;
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 16px;
+            }
+        }
+    }
+}
+
+// media mobile
+
+@media (max-width: 1300px) {
+    .cards {
+        overflow: hidden;
+        width: auto;
+
+        &__row {
+            flex-direction: column;
+            width: auto;
+        }
+
+        &__item {
+            flex: 0 0 352px;
+
+            &:nth-child(1) {
+                &::before {
+                    right: 0;
+                    top: 100%;
+                    transform: rotate(90deg) rotateX(180deg);
+                }
+            }
+
+            &:nth-child(2) {
+                &::before {
+                    right: 0;
+                    top: 100%;
+                    transform: rotate(90deg) rotateX(180deg);
+                }
+            }
+        }
+
+        &__btn {
+            text-align: center;
+            margin: 0;
+
+            & button {
+                margin: 84px 0 0 0;
+            }
+        }
+    }
+}
